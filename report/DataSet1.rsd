@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <CommandText>EVALUATE SUMMARIZECOLUMNS('Dim Clients'[Client Id], 'Dim Clients'[Name], 'Dim Clients'[Contact Person], 'Dim Clients'[Rating], "Outstanding Balance", [Outstanding Balance])</CommandText>
+      <rd:DesignerState>
+        <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+          <CommandType>DAX</CommandType>
+          <QuerySpecification xsi:type="MDXQuerySpecification">
+            <Select>
+              <Items>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Clients</DimensionName>
+                    <HierarchyName>Client Id</HierarchyName>
+                    <HierarchyUniqueName>[Dim Clients].[Client Id]</HierarchyUniqueName>
+                    <LevelName>Client Id</LevelName>
+                    <UniqueName>[Dim Clients].[Client Id].[Client Id]</UniqueName>
+                  </ID>
+                  <ItemCaption>Client Id</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Clients</DimensionName>
+                    <HierarchyName>Name</HierarchyName>
+                    <HierarchyUniqueName>[Dim Clients].[Name]</HierarchyUniqueName>
+                    <LevelName>Name</LevelName>
+                    <UniqueName>[Dim Clients].[Name].[Name]</UniqueName>
+                  </ID>
+                  <ItemCaption>Name</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Clients</DimensionName>
+                    <HierarchyName>Contact Person</HierarchyName>
+                    <HierarchyUniqueName>[Dim Clients].[Contact Person]</HierarchyUniqueName>
+                    <LevelName>Contact Person</LevelName>
+                    <UniqueName>[Dim Clients].[Contact Person].[Contact Person]</UniqueName>
+                  </ID>
+                  <ItemCaption>Contact Person</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Clients</DimensionName>
+                    <HierarchyName>Rating</HierarchyName>
+                    <HierarchyUniqueName>[Dim Clients].[Rating]</HierarchyUniqueName>
+                    <LevelName>Rating</LevelName>
+                    <UniqueName>[Dim Clients].[Rating].[Rating]</UniqueName>
+                  </ID>
+                  <ItemCaption>Rating</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>Outstanding Balance</MeasureName>
+                    <UniqueName>[Measures].[Outstanding Balance]</UniqueName>
+                  </ID>
+                  <ItemCaption>Outstanding Balance</ItemCaption>
+                  <BackColor>true</BackColor>
+                  <ForeColor>true</ForeColor>
+                  <FontFamily>true</FontFamily>
+                  <FontSize>true</FontSize>
+                  <FontWeight>true</FontWeight>
+                  <FontStyle>true</FontStyle>
+                  <FontDecoration>true</FontDecoration>
+                  <FormattedValue>true</FormattedValue>
+                  <FormatString>true</FormatString>
+                </Item>
+              </Items>
+            </Select>
+            <AutoExecute>false</AutoExecute>
+            <From>Credit DW</From>
+            <Filter>
+              <FilterItems />
+            </Filter>
+            <Calculations />
+            <Aggregates />
+            <QueryProperties>
+              <IncludeMemberValue>true</IncludeMemberValue>
+            </QueryProperties>
+          </QuerySpecification>
+          <Query>
+            <Statement>EVALUATE SUMMARIZECOLUMNS('Dim Clients'[Client Id], 'Dim Clients'[Name], 'Dim Clients'[Contact Person], 'Dim Clients'[Rating], "Outstanding Balance", [Outstanding Balance])</Statement>
+            <ParameterDefinitions />
+          </Query>
+        </QueryDefinition>
+      </rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="Client_Id">
+        <DataField>Dim Clients[Client Id]</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Name">
+        <DataField>Dim Clients[Name]</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Contact_Person">
+        <DataField>Dim Clients[Contact Person]</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Rating">
+        <DataField>Dim Clients[Rating]</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Outstanding_Balance">
+        <DataField>[Outstanding Balance]</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+    <Filters>
+      <Filter>
+        <FilterExpression>=Fields!Rating.Value</FilterExpression>
+        <Operator>GreaterThanOrEqual</Operator>
+        <FilterValues>
+          <FilterValue>99.00</FilterValue>
+        </FilterValues>
+      </Filter>
+    </Filters>
+  </DataSet>
+</SharedDataSet>
